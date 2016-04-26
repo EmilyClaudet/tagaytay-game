@@ -7,10 +7,10 @@ https://love2d.org/
 
 Clone the repository and do the following:
 
-```cd tagatay```
+``` cd tagatay ```
 
-```cd build```
+``` cd build ```
 
-```./build.sh```
+``` ./build.sh ```
 
-```love ../bin/tagatay.love```
+``` love ../bin/tagatay.love ```
