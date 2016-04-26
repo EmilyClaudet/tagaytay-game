@@ -48,14 +48,14 @@ function love.load()
 end
 
 local elapsedTime = 0
-local speed = 100
+local speed = 150
 
 function love.update(dt)
     -- Update world
     map:update(dt)
     elapsedTime = elapsedTime + dt
 
-    if (elapsedTime > 1) then
+    if (elapsedTime > 0.1) then
         if(currentFrame < 4 ) then
             currentFrame = currentFrame + 1
         else
