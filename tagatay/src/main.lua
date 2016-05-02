@@ -15,7 +15,7 @@ local RIGHT = 5
 
 function love.load()
     -- Load map file
-    map = STI.new("res/maps/pinay1.lua", {"box2d"})
+    map = STI.new("res/maps/pinay2.lua", {"box2d"})
     music = love.audio.newSource("res/audio/creepymusic.wav")
     wavesound = love.audio.newSource("res/audio/beachwaves.wav", "static")
     wavesound:setVolume(0.8)
