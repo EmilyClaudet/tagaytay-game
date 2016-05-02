@@ -17,6 +17,8 @@ function love.load()
     -- Load map file
     map = STI.new("res/maps/pinay1.lua", {"box2d"})
     music = love.audio.newSource("res/audio/creepymusic.wav")
+    wavesound = love.audio.newSource("res/audio/beachwaves.wav", "static")
+    wavesound:setVolume(0.8)
 
     imageFile = love.graphics.newImage("res/images/avatar.png")
     frames[DOWN] = {}
@@ -95,8 +97,10 @@ function love.draw()
     love.graphics.draw(imageFile, activeFrame, playerX, playerY, 0)
     -- Play music
     music:play()
+    -- Play sound effects
+    wavesound:play()
 end
 
 function love.quit()
-    print('Come back soon!')
+    print('Quitting game...')
 end
