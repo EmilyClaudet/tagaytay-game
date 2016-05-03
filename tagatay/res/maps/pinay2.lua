@@ -8,7 +8,7 @@ return {
   height = 24,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 1,
+  nextobjectid = 4,
   properties = {},
   tilesets = {
     {
@@ -29,6 +29,19 @@ return {
       terrains = {},
       tilecount = 100,
       tiles = {
+        {
+          id = 45,
+          animation = {
+            {
+              tileid = "45",
+              duration = "500"
+            },
+            {
+              tileid = "55",
+              duration = "200"
+            }
+          }
+        },
         {
           id = 50,
           animation = {
@@ -185,7 +198,9 @@ return {
       opacity = 1,
       offsetx = 0,
       offsety = 0,
-      properties = {},
+      properties = {
+        ["collidable"] = true
+      },
       encoding = "lua",
       data = {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -215,8 +230,63 @@ return {
       }
     },
     {
+      type = "objectgroup",
+      name = "Object Layer 1",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {
+        ["collidable"] = true
+      },
+      objects = {
+        {
+          id = 1,
+          name = "Donkey Renter",
+          type = "",
+          shape = "rectangle",
+          x = 736,
+          y = 704,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 10,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 2,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 640,
+          y = 704,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 47,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 608,
+          y = 704,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          gid = 46,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
       type = "tilelayer",
-      name = "Foregraound",
+      name = "Foreground",
       x = 0,
       y = 0,
       width = 32,

@@ -4,8 +4,8 @@ local imageFile
 local frames = {}
 local activeFrame
 local currentFrame = 1
-local playerX = 100
-local playerY = 100
+local playerX = 200
+local playerY = 200
 
 -- constants
 local DOWN = 2
@@ -18,7 +18,7 @@ function love.load()
     map = STI.new("res/maps/pinay2.lua", {"box2d"})
     music = love.audio.newSource("res/audio/creepymusic.wav")
     wavesound = love.audio.newSource("res/audio/beachwaves.wav", "static")
-    wavesound:setVolume(0.8)
+    wavesound:setVolume(0.7)
 
     imageFile = love.graphics.newImage("res/images/avatar.png")
     frames[DOWN] = {}
@@ -93,6 +93,7 @@ end
 function love.draw()
     -- Draw world
     map:draw()
+    map:setDrawRange(5, 5, 256, 256)
     -- Draw player
     love.graphics.draw(imageFile, activeFrame, playerX, playerY, 0)
     -- Play music
