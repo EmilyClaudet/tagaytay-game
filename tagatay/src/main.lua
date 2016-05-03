@@ -1,4 +1,5 @@
 require "player"
+require "gamestate"
 local STI = require "libs.STI"
 local imageFile
 local frames = {}
@@ -19,6 +20,7 @@ function love.load()
     music = love.audio.newSource("res/audio/creepymusic.wav")
     wavesound = love.audio.newSource("res/audio/beachwaves.wav", "static")
     wavesound:setVolume(0.7)
+    pauseImage = love.graphics.newImage("res/images/jericaPause.png")
 
     imageFile = love.graphics.newImage("res/images/avatar.png")
     frames[DOWN] = {}
@@ -47,12 +49,17 @@ function love.load()
 
     direction = DOWN
     activeFrame = frames[DOWN][currentFrame]
+    state = 'play'
 end
 
 local elapsedTime = 0
 local speed = 150
 
 function love.update(dt)
+    if state ~= 'play' then
+        return 
+    end
+
     -- Update world
     map:update(dt)
     elapsedTime = elapsedTime + dt
@@ -96,12 +103,17 @@ function love.draw()
     map:setDrawRange(5, 5, 256, 256)
     -- Draw player
     love.graphics.draw(imageFile, activeFrame, playerX, playerY, 0)
-    -- Play music
+    -- Play music and sound effects
     music:play()
-    -- Play sound effects
     wavesound:play()
+    -- pause state
+    if state == 'pause' then
+        draw_pause_screen()
+        love.audio.pause(music)
+        love.audio.pause(wavesound)
+    end
 end
 
 function love.quit()
-    print('Quitting game...')
+    print('Quitting Tagatay Game...')
 end
