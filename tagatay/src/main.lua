@@ -76,16 +76,19 @@ function love.update(dt)
     if (love.keyboard.isDown('left')) then
         playerX = playerX - (speed * dt)
         direction = LEFT
+    end
 
-    elseif (love.keyboard.isDown('right')) then
+    if (love.keyboard.isDown('right')) then
         playerX = playerX + (speed * dt)
         direction = RIGHT
+    end
 
-    elseif (love.keyboard.isDown('up')) then
+    if (love.keyboard.isDown('up')) then
         playerY = playerY - (speed * dt)
         direction = UP
+    end
 
-    elseif (love.keyboard.isDown('down')) then
+    if (love.keyboard.isDown('down')) then
         playerY = playerY + (speed * dt)
         direction = DOWN
     end
