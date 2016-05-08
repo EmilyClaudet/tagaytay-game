@@ -21,6 +21,7 @@ function love.load()
     wavesound = love.audio.newSource("res/audio/beachwaves.wav", "static")
     wavesound:setVolume(0.7)
     pauseImage = love.graphics.newImage("res/images/jericaPause.png")
+    mainImage = love.graphics.newImage("res/images/jericaMain.png")
 
     imageFile = love.graphics.newImage("res/images/avatar.png")
     frames[DOWN] = {}
@@ -112,6 +113,12 @@ function love.draw()
     -- pause state
     if state == 'pause' then
         draw_pause_screen()
+        love.audio.pause(music)
+        love.audio.pause(wavesound)
+    end
+    -- main screen state
+    if state == 'main' then
+        draw_main_screen()
         love.audio.pause(music)
         love.audio.pause(wavesound)
     end
